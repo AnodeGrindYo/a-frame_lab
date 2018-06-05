@@ -13,7 +13,7 @@
 <body>
 	<!-- our scene is in the a-scene tag -->
 	<a-scene>
-		<a-box src="https://i.imgur.com/J7QV7qd.jpg" position="-0 2 -5" rotation="0 45 0" scale="2 2 2">
+		<a-box src="img/mario-box-texture.jpg" position="-0 2 -5" rotation="0 45 0" scale="2 2 2">
 			<a-animation attribute="rotation"
                  easing="linear"
                  dur="3000"
@@ -21,7 +21,7 @@
                  to="0 45 360"
                  repeat="indefinite"></a-animation>
 		</a-box>
-		<a-sphere src="https://c1.staticflickr.com/7/6167/6180159250_84c71bd660_b.jpg" position="1.5 3.5 -3">
+		<a-sphere src="https://c1.staticflickr.com/7/6167/6180159250_84c71bd660_b.jpg" position="2 3.5 -3">
 			<a-animation attribute="rotation"
                  easing="linear"
                  dur="3000"
@@ -29,9 +29,10 @@
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
 		</a-sphere>
+		<a-sky src="img/Space-Galaxy-Texture.jpg"></a-sky>
 
 		<!-- environment component -->
-		<a-entity environment="preset: dream; lighting: distant; seed: 42; shadow: true; groundTexture: walkernoise"></a-entity>
+		<a-entity environment="preset: arches; lighting: distant; seed: 42; shadow: true; groundTexture: walkernoise"></a-entity>
 	</a-scene>
 </body>
 </html>
