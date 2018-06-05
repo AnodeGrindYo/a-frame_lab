@@ -6,14 +6,21 @@
 	<!-- a-frame cdn library -->
 	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 	<!-- @feiss's environment component https://github.com/feiss/aframe-environment-component/ -->
-	<!-- <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script> -->
 	<script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
 
 </head>
 <body>
 	<!-- our scene is in the a-scene tag -->
 	<a-scene>
-		<a-box src="img/mario-box-texture.jpg" position="-0 2 -5" rotation="0 45 0" scale="2 2 2">
+		<a-assets>
+			<img id="boxMarioTexture" src="img/mario-box-texture.jpg">
+			<img id="sphereEarthTexture" src="https://c1.staticflickr.com/7/6167/6180159250_84c71bd660_b.jpg">
+			<imd id="skyGalaxyTexture" src="img/Space-Galaxy-Texture.jpg">
+			<img id="groundTexture" src="img/grid.png">
+		</a-assets>
+
+
+		<a-box src="#boxMarioTexture" position="-0 2 -5" rotation="0 45 0" scale="2 2 2">
 			<a-animation attribute="rotation"
                  easing="linear"
                  dur="3000"
@@ -21,7 +28,7 @@
                  to="0 45 360"
                  repeat="indefinite"></a-animation>
 		</a-box>
-		<a-sphere src="https://c1.staticflickr.com/7/6167/6180159250_84c71bd660_b.jpg" position="2 3.5 -3">
+		<a-sphere src="#sphereEarthTexture" position="2 3.5 -3">
 			<a-animation attribute="rotation"
                  easing="linear"
                  dur="3000"
@@ -29,10 +36,14 @@
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
 		</a-sphere>
-		<a-sky src="img/Space-Galaxy-Texture.jpg"></a-sky>
+		<a-sky src="#skyGalaxyTexture"></a-sky>
+		<a-plane src="#groundTexture" rotation="-90 0 0" width="640" height="640" repeat="100 100"></a-plane>
+
+		<a-light type="ambient" color="#445451"></a-light>
+  		<a-light type="point" intensity="1" position="2 4 4"></a-light>
 
 		<!-- environment component -->
-		<a-entity environment="preset: arches; lighting: distant; seed: 42; shadow: true; groundTexture: walkernoise"></a-entity>
+		<!-- <a-entity environment="preset: arches; lighting: distant; seed: 42; shadow: true; groundTexture: walkernoise"></a-entity> -->
 	</a-scene>
 </body>
 </html>
